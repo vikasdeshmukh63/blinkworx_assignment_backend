@@ -12,6 +12,7 @@ export default tseslint.config({
         }
     },
     files: ['**/*.ts'],
+    ignores: ['dist/**/*'],
     extends: [eslint.configs.recommended, ...tseslint.configs.recommendedTypeChecked, eslintConfigPrettier],
     rules: {
         'no-console': 'error',

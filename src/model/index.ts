@@ -6,12 +6,14 @@ import { sequelize } from '../services/dbServices';
 // many to many relationship of order and product 
 Order.belongsToMany(Product, {
     through: OrderProductMap,
-    foreignKey: 'orderId'
+    foreignKey: 'orderId',
+    as: 'products'
 });
 
 Product.belongsToMany(Order, {
     through: OrderProductMap,
-    foreignKey: 'productId'
+    foreignKey: 'productId',
+    as: 'orders'
 });
 
 // Export models and sequelize instance for syncing

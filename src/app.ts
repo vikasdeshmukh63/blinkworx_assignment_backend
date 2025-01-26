@@ -1,7 +1,7 @@
 import cors from 'cors'
 import express, { Application, NextFunction, Request, Response } from 'express'
 import helmet from 'helmet'
-import router from './router/apiRouter'
+import router from './router/index'
 import responseMessage from './constants/responseMessage'
 import httpError from './utils/httpError'
 import globalErrorHandler from './middleware/globalErrorHandler'

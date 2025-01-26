@@ -22,3 +22,8 @@ export type THttpError ={
     data:unknown
     trace?:object | null
 }
+
+export interface CreateOrderRequestBody {
+    orderDescription: string;
+    productIds: number[];
+  }

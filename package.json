@@ -6,11 +6,11 @@
         "dist": "npx tsc",
         "dev": "cross-env NODE_ENV=development nodemon src/server.ts",
         "start": "cross-env NODE_ENV=production node dist/server.js",
-        "lint": "eslint",
-        "lint:fix": "eslint --fix",
+        "lint": "eslint . --ignore-pattern 'dist/'",
+        "lint:fix": "eslint --fix . --ignore-pattern 'dist/'",
         "format:check": "prettier . --check",
         "format:fix": "prettier . --write",
-        "prepare": "husky"
+        "prepare": "husky install"
     },
     "author": "vikas deshmukh",
     "license": "ISC",

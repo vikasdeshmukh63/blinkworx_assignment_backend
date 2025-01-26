@@ -1,10 +1,12 @@
-import { DataTypes, Model } from 'sequelize'
+import { DataTypes, Model, Transaction } from 'sequelize'
 import { sequelize } from '../services/dbServices'
+import Product from './product'
 
 class Order extends Model {
     public id!: number
     public orderDescription!: string
     public createdAt!: Date
+    declare addProducts: (products: Product[] | number[], options?: { transaction?: Transaction }) => Promise<void>
 }
 
 Order.init(
