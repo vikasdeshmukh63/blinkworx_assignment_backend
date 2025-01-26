@@ -7,10 +7,10 @@ import { sequelize } from './model'
 const server = app.listen(config.PORT)
 
 // function to handle operation before starting of server
-;void (async() => {
+void (async () => {
     try {
         // database connection
-        const connection = await databaseService.connect();
+        const connection = await databaseService.connect()
         logger.info(`DATABASE CONNECTED`, {
             meta: {
                 CONNECTION_NAME: connection.getDatabaseName()
@@ -18,7 +18,7 @@ const server = app.listen(config.PORT)
         })
 
         // syncing all models with database
-        await sequelize.sync({ force: false });
+        await sequelize.sync({ force: false })
         logger.info('DATABASE MODELS SYNCED')
 
         logger.info(`APPLICATION STARTED`, {

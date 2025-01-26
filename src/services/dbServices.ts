@@ -5,12 +5,15 @@ import logger from '../utils/logger'
 export const sequelize = new Sequelize(config.DATABASE as string, {
     dialect: 'postgres',
     protocol: 'postgres',
-    dialectOptions: config.DATABASE_SSL === 'true' ? {
-        ssl: {
-            require: true,
-            rejectUnauthorized: false
-        }
-    } : undefined,
+    dialectOptions:
+        config.DATABASE_SSL === 'true'
+            ? {
+                  ssl: {
+                      require: true,
+                      rejectUnauthorized: false
+                  }
+              }
+            : undefined,
     logging: (msg) => logger.info(msg)
 })
 

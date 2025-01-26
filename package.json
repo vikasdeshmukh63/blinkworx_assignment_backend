@@ -1,7 +1,7 @@
 {
     "name": "blinkworx_server",
     "version": "1.0.0",
-    "main": "server.ts",
+    "main": "src/server.js",
     "scripts": {
         "dist": "npx tsc",
         "dev": "cross-env NODE_ENV=development nodemon src/server.ts",

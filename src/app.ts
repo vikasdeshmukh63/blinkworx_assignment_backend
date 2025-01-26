@@ -32,7 +32,7 @@ app.use((req: Request, _: Response, next: NextFunction) => {
     } catch (error) {
         httpError(next, error, req, 404)
     }
-});
+})
 
 // global error handler
 app.use(globalErrorHandler)

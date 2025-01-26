@@ -82,7 +82,6 @@ const fileLogFormat = format.printf((info) => {
     return JSON.stringify(logData, null, 4)
 })
 
-
 const fileTransport = (): Array<FileTransportInstance> => {
     return [
         new transports.File({
@@ -97,5 +96,5 @@ export default createLogger({
     defaultMeta: {
         meta: {}
     },
-    transports: [...fileTransport(),  ...consoleTransport()]
+    transports: [...fileTransport(), ...consoleTransport()]
 })

@@ -7,6 +7,7 @@ class Order extends Model {
     public orderDescription!: string
     public createdAt!: Date
     declare addProducts: (products: Product[] | number[], options?: { transaction?: Transaction }) => Promise<void>
+    declare setProducts: (products: Product[] | number[], options?: { transaction?: Transaction }) => Promise<void>
 }
 
 Order.init(
