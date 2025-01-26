@@ -1,19 +1,19 @@
 services:
-  - type: web
-    name: blinkworx-server
-    env: node
-    buildCommand: npm install && npm run dist
-    startCommand: npm start
-    envVars:
-      - key: NODE_ENV
-        value: production
-      - key: PORT
-        value: 10000
-      - key: DATABASE_SSL
-        value: true
-      - key: DATABASE_URL
-        fromDatabase:
-          name: blinkworx-db
-          property: postgresql://vikas:RZBW44PZrRqWneZ8vPjOEhy1C1ceMwnm@dpg-cub2e41opnds73efqp7g-a.oregon-postgres.render.com/blinkworx
-      - key: SERVER_URL
-        sync: false 
+    - type: web
+      name: blinkworx-server
+      env: node
+      buildCommand: npm install && npm run dist
+      startCommand: npm start
+      envVars:
+          - key: NODE_ENV
+            value: production
+          - key: PORT
+            value: 10000
+          - key: DATABASE_SSL
+            value: true
+          - key: DATABASE_URL
+            fromDatabase:
+                name: blinkworx-db
+                property: postgresql://vikas:RZBW44PZrRqWneZ8vPjOEhy1C1ceMwnm@dpg-cub2e41opnds73efqp7g-a.oregon-postgres.render.com/blinkworx
+          - key: SERVER_URL
+            sync: false
