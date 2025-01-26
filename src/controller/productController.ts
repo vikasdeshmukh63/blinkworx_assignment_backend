@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 import responseMessage from '../constants/responseMessage'
-import { Product, sequelize } from '../model'
+import { Order, Product, sequelize } from '../model'
 import httpError from '../utils/httpError'
 import httpResponse from '../utils/httpResponse'
 import { CreateProductRequestBody } from '../types/types'
@@ -34,6 +34,17 @@ export default {
         } catch (error) {
             // rollback if there is any error
             await transaction.rollback()
+            return httpError(next, error, req, 500)
+        }
+    },
+    getAllProducts: async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const products = await Product.findAll({
+                include: [{ model: Order, as: 'orders' }]
+            })
+
+            return httpResponse(req, res, 200, responseMessage.SUCCESS, products)
+        } catch (error) {
             return httpError(next, error, req, 500)
         }
     }
