@@ -27,3 +27,8 @@ export interface CreateOrderRequestBody {
     orderDescription: string
     productIds: number[]
 }
+
+export interface CreateProductRequestBody {
+    productName: string
+    productDescription?: string
+}
