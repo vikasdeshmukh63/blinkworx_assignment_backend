@@ -2,6 +2,7 @@ import { Sequelize } from 'sequelize'
 import config from '../config/config'
 import logger from '../utils/logger'
 
+// ! database connection
 export const sequelize = new Sequelize(config.DATABASE as string, {
     dialect: 'postgres',
     protocol: 'postgres',
@@ -17,6 +18,7 @@ export const sequelize = new Sequelize(config.DATABASE as string, {
     logging: (msg) => logger.info(msg)
 })
 
+// ! database services
 export default {
     connect: async () => {
         try {

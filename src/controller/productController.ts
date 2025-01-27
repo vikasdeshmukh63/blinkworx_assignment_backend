@@ -8,6 +8,7 @@ import { CreateProductRequestBody } from '../types/types'
 export default {
     // ! add new product
     addProduct: async (req: Request, res: Response, next: NextFunction) => {
+        // starting transaction
         const transaction = await sequelize.transaction()
 
         try {
@@ -39,6 +40,7 @@ export default {
     },
     getAllProducts: async (req: Request, res: Response, next: NextFunction) => {
         try {
+            // finding all products
             const products = await Product.findAll({
                 include: [{ model: Order, as: 'orders' }]
             })

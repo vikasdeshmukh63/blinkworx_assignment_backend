@@ -5,6 +5,7 @@ import responseMessage from '../constants/responseMessage'
 import httpError from '../utils/httpError'
 
 export default {
+    // ! health check
     health: (req: Request, res: Response, next: NextFunction) => {
         try {
             const healthData = {
